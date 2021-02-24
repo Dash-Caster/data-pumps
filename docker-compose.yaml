@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  running_ec2_instances:
+    container_name: running_ec2_instances
+    build:
+      context: running_ec2_instances
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - running_ec2_instances/.env
