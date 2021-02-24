@@ -1,6 +1,7 @@
 version: '3.3'
 
 services:
+
   running_ec2_instances:
     container_name: running_ec2_instances
     build:
@@ -9,3 +10,12 @@ services:
       - ./common/:/app/common
     env_file:
       - running_ec2_instances/.env
+
+  sqs_queue_messages:
+    container_name: sqs_queue_messages
+    build:
+      context: sqs_queue_messages
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - sqs_queue_messages/.env

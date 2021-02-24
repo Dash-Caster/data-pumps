@@ -95,6 +95,7 @@ This repository contains the following data pump services for DashCaster boards.
 |       Service name            |         Description |       Configuration         |
 |-----------------------------------|---------------------------------|-------------|
 | [running_ec2_instances](https://github.com/Dash-Caster/data-pumps/running_ec2_instances) | This service takes in AWS credentials, a list of regions and pushes the count of running AWS EC2 instances across the given regions to your DashCaster board.| Edit `running_ec2_instances/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/running_ec2_instances#configuration). |
+| [sqs_queue_messages](https://github.com/Dash-Caster/data-pumps/sqs_queue_messages) | This service takes in AWS credentials, an SQS queue name and region, and pushes the count of the messages in the queue to your DashCaster board.| Edit `sqs_queue_messages/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/sqs_queue_messages#configuration). |
 
 <!-- USAGE EXAMPLES -->
 ## Usage

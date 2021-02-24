@@ -64,17 +64,17 @@ class BasePumpService(metaclass=abc.ABCMeta):
             if 'error' or 'message' in body:
                 if body.get('error'):
                     if body['error'].lower().strip() == 'no_email':
-                        logging.critical('Your DashCaster Dashboard Demo period has expired.' \
-                                         'Please extend your trial by providing an e-mail address' \
+                        logging.critical('Your DashCaster Dashboard Demo period has expired. ' \
+                                         'Please extend your trial by providing an e-mail address ' \
                                          'on the DashCaster web interface.'
                                         )
                     elif body['error'].lower().strip() == 'not_paid':
-                        logging.critical('Your DashCaster Dashboard Trial period has expired.' \
-                                         'Please extend your subscription by subscribing to a' \
+                        logging.critical('Your DashCaster Dashboard Trial period has expired. ' \
+                                         'Please extend your subscription by subscribing to a ' \
                                          'DashCaster monthly or yearly plan on the DashCaster web interface.'
                                         )
                     elif body['error'].lower().strip() == 'unauthorized':
-                        logging.critical('Unable to authenticate with DashCaster' \
+                        logging.critical('Unable to authenticate with DashCaster ' \
                                          'using the provided credentials.'
                                         )
                     else:
@@ -82,7 +82,7 @@ class BasePumpService(metaclass=abc.ABCMeta):
                     sys.exit(1)
                 elif body.get('message'):
                     if body['message'].lower().strip() == 'unauthorized':
-                        logging.critical('Unable to authenticate with DashCaster' \
+                        logging.critical('Unable to authenticate with DashCaster ' \
                                          'using the provided credentials.'
                                         )
                     else:
@@ -99,6 +99,7 @@ class BasePumpService(metaclass=abc.ABCMeta):
             # Poll for data
             try:
                 self.poll()
+                logging.info('Data polled successfully...')
             except Exception as e:
                 logging.error(e)
                 logging.error('Unexpected error occurred while polling for data.')
@@ -106,9 +107,11 @@ class BasePumpService(metaclass=abc.ABCMeta):
             # Pump the data
             try:
                 self.pump()
+                logging.info('Data pump successful...')
             except Exception as e:
                 logging.error(e)
                 logging.error('Unexpected error occurred while pumping the data.')
             
             # Wait for sleep interval
+            logging.info(f'Sleeping for {self.interval} seconds...')
             time.sleep(self.interval)
