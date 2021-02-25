@@ -28,3 +28,12 @@ services:
       - ./common/:/app/common
     env_file:
       - current_aws_bill/.env
+
+  rds_data_api_query:
+    container_name: rds_data_api_query
+    build:
+      context: rds_data_api_query
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - rds_data_api_query/.env
