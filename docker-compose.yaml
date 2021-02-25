@@ -19,3 +19,12 @@ services:
       - ./common/:/app/common
     env_file:
       - sqs_queue_messages/.env
+
+  current_aws_bill:
+    container_name: current_aws_bill
+    build:
+      context: current_aws_bill
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - current_aws_bill/.env
