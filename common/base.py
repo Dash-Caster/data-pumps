@@ -51,7 +51,7 @@ class BasePumpService(metaclass=abc.ABCMeta):
         pass
 
     def pump(self):
-        assert getattr(self, 'data', None), 'Data could not be polled successfully. Aborting pump...'
+        assert getattr(self, 'data', None) is not None, 'Data could not be polled successfully. Aborting pump...'
         update_data = {
             'entity_id': self.entity_id,
             'properties': [{'current_value': self.data}]

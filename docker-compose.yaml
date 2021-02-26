@@ -46,3 +46,12 @@ services:
       - ./common/:/app/common
     env_file:
       - web_scraped_value/.env
+
+  dynamodb_query:
+    container_name: dynamodb_query
+    build:
+      context: dynamodb_query
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - dynamodb_query/.env

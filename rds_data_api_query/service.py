@@ -12,7 +12,6 @@ import boto3
 from boto3.session import Session
 import botocore
 
-import random
 
 class RDSDataQueryPumpService(BasePumpService):
     def configure(self):
