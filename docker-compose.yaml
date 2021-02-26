@@ -37,3 +37,12 @@ services:
       - ./common/:/app/common
     env_file:
       - rds_data_api_query/.env
+
+  web_scraped_value:
+    container_name: web_scraped_value
+    build:
+      context: web_scraped_value
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - web_scraped_value/.env

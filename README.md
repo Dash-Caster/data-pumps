@@ -98,7 +98,7 @@ This repository contains the following data pump services for DashCaster boards.
 | [sqs_queue_messages](https://github.com/Dash-Caster/data-pumps/sqs_queue_messages) | This service takes in AWS credentials, an SQS queue name and region, and pushes the count of the messages in the queue to your DashCaster board.| Edit `sqs_queue_messages/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/sqs_queue_messages#configuration). |
 | [current_aws_bill](https://github.com/Dash-Caster/data-pumps/current_aws_bill) | This service takes in AWS credentials and pushes the current estimated MTD bill to your DashCaster board.| Edit `current_aws_bill/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/current_aws_bill#configuration). |
 | [rds_data_api_query](https://github.com/Dash-Caster/data-pumps/rds_data_api_query) | This service takes in AWS credentials, RDS  and pushes the current estimated MTD bill to your DashCaster board.| Edit `rds_data_api_query/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/rds_data_api_query#configuration). |
-
+| [web_scraped_value](https://github.com/Dash-Caster/data-pumps/web_scraped_value) | This service takes in the URL of a webpage and an Xpath selector, and pushes the value scraped from the Xpath selector to your DashCaster board.| Edit `web_scraped_value/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/web_scraped_value#configuration). |
 
 <!-- USAGE EXAMPLES -->
 ## Usage

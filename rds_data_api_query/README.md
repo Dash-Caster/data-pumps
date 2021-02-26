@@ -1,6 +1,6 @@
-# Current AWS Bill Pump Service
+# RDS Data API Query Pump Service
 
-An open-source data pump service based on Python that gets your estimated AWS bill MTD (month-to-date) and sends the data to a DashCaster widget.
+An open-source data pump service based on Python that queries a RDS database instance and sends the resulting value to a DashCaster widget.
 
 
 ### Configuration
@@ -17,7 +17,7 @@ The configration variables are defined in the `.env` file. This service supports
 * **`RDS_DB_NAME`**: The name of the database to be queried that exists in your RDS instance. (**required**)
 * **`SQL_STATEMENT`**: The SQL statement which is to be executed to query your RDS database. Ideally this query should return a single value (I.e. single row and single column). (**required**)
 
-* **Note:** Make sure that your RDS database instance has Data API enabled.
+**Note:** Make sure that your RDS database instance has Data API enabled.
 
 ### Built With
 

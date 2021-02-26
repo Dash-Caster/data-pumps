@@ -40,6 +40,7 @@ class BasePumpService(metaclass=abc.ABCMeta):
             sys.exit(1)
         
         self.configure()
+        self.data = None
 
     @abc.abstractmethod
     def configure(self):
@@ -99,7 +100,8 @@ class BasePumpService(metaclass=abc.ABCMeta):
             # Poll for data
             try:
                 self.poll()
-                logging.info('Data polled successfully...')
+                if self.data:
+                    logging.info('Data polled successfully...')
             except Exception as e:
                 logging.error(e)
                 logging.error('Unexpected error occurred while polling for data.')
