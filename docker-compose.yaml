@@ -1,0 +1,57 @@
+version: '3.3'
+
+services:
+
+  running_ec2_instances:
+    container_name: running_ec2_instances
+    build:
+      context: running_ec2_instances
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - running_ec2_instances/.env
+
+  sqs_queue_messages:
+    container_name: sqs_queue_messages
+    build:
+      context: sqs_queue_messages
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - sqs_queue_messages/.env
+
+  current_aws_bill:
+    container_name: current_aws_bill
+    build:
+      context: current_aws_bill
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - current_aws_bill/.env
+
+  rds_data_api_query:
+    container_name: rds_data_api_query
+    build:
+      context: rds_data_api_query
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - rds_data_api_query/.env
+
+  web_scraped_value:
+    container_name: web_scraped_value
+    build:
+      context: web_scraped_value
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - web_scraped_value/.env
+
+  dynamodb_query:
+    container_name: dynamodb_query
+    build:
+      context: dynamodb_query
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - dynamodb_query/.env
