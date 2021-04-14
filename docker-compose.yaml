@@ -2,6 +2,15 @@ version: '3.3'
 
 services:
 
+  demo_data:
+    container_name: demo_data
+    build:
+      context: demo_data
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - demo_data/.env
+
   running_ec2_instances:
     container_name: running_ec2_instances
     build:
