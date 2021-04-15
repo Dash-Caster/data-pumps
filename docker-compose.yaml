@@ -64,3 +64,12 @@ services:
       - ./common/:/app/common
     env_file:
       - dynamodb_query/.env
+
+  open_pull_requests:
+    container_name: open_pull_requests
+    build:
+      context: open_pull_requests
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - open_pull_requests/.env
