@@ -73,3 +73,12 @@ services:
       - ./common/:/app/common
     env_file:
       - open_pull_requests/.env
+
+  jira_issues:
+    container_name: jira_issues
+    build:
+      context: jira_issues
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - jira_issues/.env.asim

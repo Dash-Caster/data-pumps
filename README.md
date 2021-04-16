@@ -102,6 +102,7 @@ This repository contains the following data pump services for DashCaster boards.
 | [web_scraped_value](https://github.com/Dash-Caster/data-pumps/web_scraped_value) | This service takes in the URL of a webpage and an Xpath selector, and pushes the value scraped from the Xpath selector to your DashCaster board.| Edit `web_scraped_value/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/web_scraped_value#configuration). |
 | [dynamodb_query](https://github.com/Dash-Caster/data-pumps/dynamodb_query) | This service takes in AWS credentials and a DynamoDB query, and pushes the value returned by the query to your DashCaster board.| Edit `dynamodb_query/.env` and `dynamodb_query/arguments.json` files according to [these instructions](https://github.com/Dash-Caster/data-pumps/dynamodb_query#configuration). |
 | [open_pull_requests](https://github.com/Dash-Caster/data-pumps/open_pull_requests) | This service takes in a Github organization, user, or repository URL, and pushes the number of total open PRs to your DashCaster board. | Edit `open_pull_requests/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/open_pull_requests#configuration). |
+| [jira_issues](https://github.com/Dash-Caster/data-pumps/jira_issues) | This service counts the number of JIRA issues filtered by the configured criteria and sends it to your DashCaster board. | Edit `jira_issues/.env` file according to [these instructions](https://github.com/Dash-Caster/data-pumps/jira_issues#configuration). |
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -160,7 +161,11 @@ Where `service_name` is the name of the service you want to run.
 * Activate the virtual environment and run:
   ```bash
   pip install -r requirements.txt
-  export $(cat .env | xargs) && python service.py
+  pip install python-dotenv
+  
+  dotenv run -- python service.py  # Using .env file
+  # OR
+  dotenv -f .env.custom run -- python service.py  # Using .env.custom file
   ```
 
 
