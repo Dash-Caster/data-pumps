@@ -11,6 +11,15 @@ services:
     env_file:
       - demo_data/.env
 
+  openweather:
+    container_name: openweather
+    build:
+      context: openweather
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - openweather/.env
+
   running_ec2_instances:
     container_name: running_ec2_instances
     build:
@@ -81,4 +90,4 @@ services:
     volumes:
       - ./common/:/app/common
     env_file:
-      - jira_issues/.env.asim
+      - jira_issues/.env
