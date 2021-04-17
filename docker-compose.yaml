@@ -11,6 +11,15 @@ services:
     env_file:
       - demo_data/.env
 
+  openweather:
+    container_name: openweather
+    build:
+      context: openweather
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - openweather/.env
+
   running_ec2_instances:
     container_name: running_ec2_instances
     build:
@@ -64,3 +73,21 @@ services:
       - ./common/:/app/common
     env_file:
       - dynamodb_query/.env
+
+  open_pull_requests:
+    container_name: open_pull_requests
+    build:
+      context: open_pull_requests
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - open_pull_requests/.env
+
+  jira_issues:
+    container_name: jira_issues
+    build:
+      context: jira_issues
+    volumes:
+      - ./common/:/app/common
+    env_file:
+      - jira_issues/.env
